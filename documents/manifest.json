@@ -1,0 +1,31 @@
+{
+  "project": "TaskNest RAG Prototype",
+  "source_policy": "Original project summaries authored for this experiment",
+  "documents": [
+    {
+      "file": "01-overview.md",
+      "topic": "Product overview and initial scope",
+      "origin": "Summary of TaskNest homepage milestone"
+    },
+    {
+      "file": "02-authentication.md",
+      "topic": "Registration, login, sessions, and logout",
+      "origin": "Summary of TaskNest authentication milestone"
+    },
+    {
+      "file": "03-authorization.md",
+      "topic": "Member and administrator access control",
+      "origin": "Summary of TaskNest authorization milestone"
+    },
+    {
+      "file": "04-testing.md",
+      "topic": "Automated and manual verification",
+      "origin": "Summary of TaskNest testing observations"
+    },
+    {
+      "file": "05-limitations.md",
+      "topic": "Project boundaries and future work",
+      "origin": "Summary of TaskNest milestone scope"
+    }
+  ]
+}

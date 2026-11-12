@@ -32,3 +32,11 @@ A student or developer who wants to ask questions about a small collection of te
 - [GitHub repository](https://github.com/FangzeW1/is373-rag-prototype)
 - [Technical research](/research)
 - [Experiment plan](/experiment)
+
+## Working Prototype Results
+
+The local Next.js RAG experiment is now operational. It ingests five original TaskNest documents, generates local embeddings, searches a LanceDB vector database, and streams Groq responses with source references.
+
+Five initial manual questions behaved as expected, including questions about information absent from the corpus.
+
+See the [evaluation report](./evaluation) for implementation details, observations, and limitations.

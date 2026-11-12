@@ -5,3 +5,7 @@ research/.vitepress/cache/
 research/.vitepress/dist/
 .env
 .env.local
+
+# Local RAG database and downloaded models
+rag-data/
+.cache/

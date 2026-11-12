@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  serverExternalPackages: [
+    "@lancedb/lancedb",
+    "@huggingface/transformers"
+  ]
 };
 
 export default nextConfig;
