@@ -1,6 +1,6 @@
 # IS373 — RAG Prototype
 
-## 2. Individual RAG app + technical research
+## Individual RAG App & Technical Research
 
 **Research question:** How can a small collection of permitted documents support accurate, source-cited answers using retrieval-augmented generation?
 
