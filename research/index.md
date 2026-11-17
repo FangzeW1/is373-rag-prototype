@@ -6,6 +6,12 @@
 
 This site is the **IS373 technical research record**. The IS218 portfolio is a separate project that may link here as supporting evidence.
 
+## RAG chatbot project
+
+**[Open the RAG chatbot repository and local setup instructions](https://github.com/FangzeW1/is373-rag-prototype#run-locally)** · [Browse chatbot source](https://github.com/FangzeW1/is373-rag-prototype/tree/main/chat) · [View screenshot walkthrough](https://fangzew1.github.io/is218-portfolio-research/projects.html#rag-walkthrough)
+
+The application runs locally; this public research site does not host a live chat service.
+
 ## Research review index
 
 - **Sources:** [Five permitted TaskNest Markdown documents](https://github.com/FangzeW1/is373-rag-prototype/tree/main/documents)
