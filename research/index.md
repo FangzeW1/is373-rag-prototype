@@ -1,42 +1,35 @@
-# IS373 — RAG Prototype
+# IS373 — Individual RAG App and Technical Research
 
-## Individual RAG App & Technical Research
+**Review 1 · Plan** | [GitHub repository](https://github.com/FangzeW1/is373-rag-prototype)
 
-**Research question:** How can a small collection of permitted documents support accurate, source-cited answers using retrieval-augmented generation?
+**Research question:** How can a small collection of permitted TaskNest documents support source-grounded answers through retrieval-augmented generation?
 
-This website documents research, architecture decisions, experiments, and limitations for an individual RAG application.
+This site is the **IS373 technical research record**. The IS218 portfolio is a separate project that may link here as supporting evidence.
 
-## Current stage
+## Research review index
 
-**Plan — November 12, 2026**
+- **Sources:** [Five permitted TaskNest Markdown documents](https://github.com/FangzeW1/is373-rag-prototype/tree/main/documents)
+- **Comparisons and reasons:** [Vector vs. graph vs. hybrid retrieval; LanceDB selection](https://github.com/FangzeW1/is373-rag-prototype/blob/main/research/RAG-PLAN-EVIDENCE.md#compare-retrieval-alternatives-before-choosing)
+- **Technical background and references:** [Research notes](/research)
+- **Source-to-answer evidence:** [Authorization trace and evidence boundaries](https://github.com/FangzeW1/is373-rag-prototype/blob/main/research/RAG-PLAN-EVIDENCE.md#trace-a-permitted-source-to-an-answer)
+- **Observed and planned evaluation:** [Evaluation record](/evaluation) · [Five-check review plan](https://github.com/FangzeW1/is373-rag-prototype/blob/main/research/RAG-PLAN-EVIDENCE.md#observable-stories-and-checks)
+- **Architecture and next experiments:** [Experiment plan](/experiment)
+- **Implementation:** [Ingestion](https://github.com/FangzeW1/is373-rag-prototype/blob/main/chat/scripts/ingest.mjs) · [Chat API](https://github.com/FangzeW1/is373-rag-prototype/blob/main/chat/src/app/api/chat/route.ts)
 
-The research site and project repository are being prepared. The working chatbot, retrieval pipeline, and hosted application have not yet been completed.
+## Current status
 
-## Intended reader
+**Implemented locally:** Next.js streaming chat; five TaskNest source documents; chunking and embeddings; LanceDB vector retrieval; Groq-backed response generation. This research site is hosted, but the chatbot itself runs locally.
 
-A student or developer who wants to ask questions about a small collection of technical documents and inspect the supporting evidence.
+**Observed:** Local questions about TaskNest's purpose and member/admin access, plus an unsupported greeting. Screenshots show responses and retrieved source filenames; they do not independently verify all returned chunk text.
 
-## Proposed system
+**Not yet established:** A systematic comparison against keyword or graph retrieval, retrieval accuracy scores, public chatbot hosting, and comprehensive answer-faithfulness testing.
 
-1. Import permitted documents and record their sources.
-2. Extract, clean, and deduplicate content.
-3. Split content into chunks with stable source identifiers.
-4. Generate embeddings and store them in a vector database.
-5. Embed a user question and retrieve relevant passages.
-6. Ask a language model to answer using those passages.
-7. Stream the answer to a Next.js chat interface.
-8. Display source references and evaluate the result.
+## Changed / Checked / Next
 
-## Project links
+**Changed:** Implemented a local RAG experiment and documented technical decisions, evidence and limitations.
 
-- [GitHub repository](https://github.com/FangzeW1/is373-rag-prototype)
-- [Technical research](/research)
-- [Experiment plan](/experiment)
+**Checked:** Reviewed source files and code paths; captured three local chatbot examples. [See the screenshot walkthrough](https://fangzew1.github.io/is218-portfolio-research/projects.html#rag-walkthrough) on the separate portfolio site.
 
-## Working Prototype Results
+**Next:** Record exact retrieved passages and scores; evaluate five labeled questions; compare retrieval baselines; prepare hosting for Build.
 
-The local Next.js RAG experiment is now operational. It ingests five original TaskNest documents, generates local embeddings, searches a LanceDB vector database, and streams Groq responses with source references.
-
-Five initial manual questions behaved as expected, including questions about information absent from the corpus.
-
-See the [evaluation report](./evaluation) for implementation details, observations, and limitations.
+The goal at Plan is to make decisions and evidence reviewable, not to claim a finished hosted application.
