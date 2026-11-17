@@ -4,7 +4,7 @@
 
 A research and experimental project exploring retrieval-augmented generation (RAG), vector and graph databases, content ingestion, chunking, embeddings, retrieval, and source-supported AI answers.
 
-## Research question
+**Review index:** [RAG Plan: alternatives, source evidence and evaluation](research/RAG-PLAN-EVIDENCE.md) · [TaskNest source documents](documents/) · [Chat ingestion](chat/scripts/ingest.mjs) · [Chat API](chat/src/app/api/chat/route.ts) · [Screenshot walkthrough](https://fangzew1.github.io/is218-portfolio-research/projects.html#rag-walkthrough)\n\n## Research question
 
 How can a small collection of permitted documents support accurate, source-cited answers through retrieval-augmented generation?
 
@@ -21,7 +21,7 @@ How can a small collection of permitted documents support accurate, source-cited
 
 ## Current status
 
-Plan stage. Architecture and tools are proposed, not yet implemented or validated.
+Local Next.js RAG prototype implemented and exercised with three documented UI examples. The GitHub API route may lag uncommitted local improvements; see the linked research evidence page for verified code paths, observed screenshots and planned evaluation.
 
 ## Next steps
 
