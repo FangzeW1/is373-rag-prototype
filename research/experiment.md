@@ -1,24 +1,26 @@
 # Experiment Plan
 
-**Status:** Planned; no retrieval or generation results are claimed.
+**Status:** Local RAG experiment implemented and manually exercised; systematic comparisons and hosted deployment remain planned.
 
 ## Intended reader
 
 A student or developer asking questions about a small collection of technical documentation.
 
-## Proposed corpus
+**[RAG chatbot code and setup](https://github.com/FangzeW1/is373-rag-prototype#run-locally)** · [Evaluation record](/evaluation) · [Source evidence trace](https://github.com/FangzeW1/is373-rag-prototype/blob/main/research/RAG-PLAN-EVIDENCE.md)
+
+## Actual permitted corpus
 
 Start with five short, permitted documents about the TaskNest prototype:
 
 | ID | Document | Permission |
 |---|---|---|
 | DOC-001 | Original TaskNest overview | Self-authored |
-| DOC-002 | Original feature requirements | Self-authored |
-| DOC-003 | Original architecture notes | Self-authored |
-| DOC-004 | Original testing plan | Self-authored |
-| DOC-005 | Original security decisions | Self-authored |
+| DOC-002 | TaskNest authentication | Self-authored |
+| DOC-003 | TaskNest authorization | Self-authored |
+| DOC-004 | TaskNest testing notes | Self-authored |
+| DOC-005 | TaskNest scope and limitations | Self-authored |
 
-These documents still need to be prepared and imported. Record their actual creation dates, versions, and hashes in a source manifest.
+These five project-owned Markdown documents are present in the repository's [documents folder](https://github.com/FangzeW1/is373-rag-prototype/tree/main/documents) and have been imported into local LanceDB. A source version/hash manifest remains planned.
 
 ## Evaluation questions
 
@@ -57,23 +59,23 @@ For each generated response, record:
 
 These comparisons will use the same corpus and evaluation questions.
 
-## Planned application
+## Implemented locally / planned for Build
 
-- Next.js streaming chat interface
-- Server-side model API access
-- Real embeddings and persistent vector storage
-- Source citations and retrieval traces
-- Repeatable import script
-- Hosted application at the Build stage
+- **Implemented:** Next.js streaming chat interface
+- **Implemented:** Server-side Groq model API access
+- **Implemented:** MiniLM embeddings and persistent local LanceDB
+- **Partially implemented:** Retrieved source filenames are displayed; exact chunk-level traces and verified citations remain planned
+- **Implemented:** Repeatable Markdown import script
+- **Planned for Build:** Hosted application
 
 ## Unresolved questions for class
 
-- Which free-tier model API is suitable for streaming generation?
-- Which embedding model is practical for local development?
+- How will hosted API usage be limited and monitored? (Groq is used locally.)
+- How does the selected MiniLM model compare with alternatives on our corpus?
 - What hosting arrangement can persist the vector database?
 - How should public request limits be enforced?
 - What is the simplest useful evaluation record?
 
 ## Evidence status
 
-Research and architecture planning are in progress. No successful imports, embeddings, retrieval traces, model answers, hosted RAG deployment, or peer review are claimed yet.
+Local import, embeddings, retrieval and streamed model answers have been implemented. The [evaluation report](/evaluation) records five manually observed questions, and the [screenshot walkthrough](https://fangzew1.github.io/is218-portfolio-research/projects.html#rag-walkthrough) shows three further local interactions. No hosted chatbot, measured retrieval accuracy, comparative baseline, or completed peer review is claimed.
