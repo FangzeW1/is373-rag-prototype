@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -64,19 +65,32 @@ export default function Home() {
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unknown error.");
     } finally {
+      // Remove standalone AI-generated source citations.
+      // Keep the program-generated "Retrieved sources" line.
+      setAnswer((previous) =>
+        previous
+          .replace(
+            /^\s*\*?Source:\s*[^\n]+\*?\s*$/gim,
+            ""
+          )
+          .replace(/\n{3,}/g, "\n\n")
+          .trim()
+      );
+
       setLoading(false);
     }
   }
 
   return (
-    <main style={{
-      maxWidth: 760,
-      margin: "60px auto",
-      padding: 24,
-      fontFamily: "system-ui, sans-serif",
-    }}>
+    <main
+      style={{
+        maxWidth: 760,
+        margin: "60px auto",
+        padding: 24,
+        fontFamily: "system-ui, sans-serif",
+      }}
+    >
       <h1>IS373 — Streaming AI Chat</h1>
-      <p>First experiment: streaming generation. RAG retrieval comes next.</p>
 
       <form onSubmit={ask}>
         <textarea
@@ -94,6 +108,7 @@ export default function Home() {
             background: "#fff",
           }}
         />
+
         <button
           type="submit"
           disabled={loading || !question.trim()}
@@ -114,7 +129,10 @@ export default function Home() {
 
       <section style={{ marginTop: 32, whiteSpace: "pre-wrap" }}>
         <h2>Response</h2>
-        <p>{answer || (loading ? "Waiting for response..." : "No response yet.")}</p>
+        <p>
+          {answer ||
+            (loading ? "Waiting for response..." : "No response yet.")}
+        </p>
       </section>
     </main>
   );
