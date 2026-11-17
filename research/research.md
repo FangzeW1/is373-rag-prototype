@@ -1,7 +1,9 @@
 # Technical Research: RAG, Vectors, and Graphs
 
 **Research date:** November 12, 2026  
-**Status:** Plan-stage research; implementation and evaluation pending.
+**Status:** Local vector RAG implementation complete; initial manual checks recorded. Keyword/graph comparisons and systematic evaluation remain planned.
+
+**[RAG chatbot project and local setup](https://github.com/FangzeW1/is373-rag-prototype#run-locally)** · [Source evidence and retrieval comparisons](https://github.com/FangzeW1/is373-rag-prototype/blob/main/research/RAG-PLAN-EVIDENCE.md) · [Evaluation](/evaluation)
 
 ## Research question
 
@@ -17,7 +19,7 @@ Retrieval does not guarantee accuracy. The application must show the retrieved e
 
 A vector database stores embeddings, which are numerical representations of text or other data.
 
-**Proposed process:**
+**Implemented vector retrieval process:**
 1. Split documents into chunks.
 2. Generate an embedding for each chunk.
 3. Store embeddings with source metadata.
@@ -33,13 +35,7 @@ A vector database stores embeddings, which are numerical representations of text
 
 A graph database represents entities as nodes and relationships as edges.
 
-Example:
-
-- TaskNest → uses → SQLite
-- SQLite → provides → persistent storage
-- TaskNest → requires → authenticated access
-
-These would be proposed facts derived from specific source passages, not automatically trustworthy facts.
+Example grounded in [the TaskNest authorization source](https://github.com/FangzeW1/is373-rag-prototype/blob/main/documents/03-authorization.md): `Member → denied access to → Administrator API`. This is a proposed graph representation, not an implemented graph database.
 
 **Strength:** Explicit relationships can help answer multi-entity questions.
 
@@ -47,7 +43,7 @@ These would be proposed facts derived from specific source passages, not automat
 
 ## Architecture decision
 
-**Proposed choice: vector retrieval for the first prototype.**
+**Selected and implemented: vector retrieval using LanceDB for the first prototype.**
 
 The initial corpus is small and consists mainly of short technical documents. Vector retrieval is a practical first experiment for paraphrased questions. A graph database is not necessary for the initial implementation.
 
@@ -73,7 +69,7 @@ ETL means extract, transform, and load.
 6. Store chunks and source metadata.
 7. Generate and store embeddings.
 
-Each source will have a stable ID, origin, retrieval date, version or content hash, and permission status. Reimporting unchanged content should not create duplicates.
+Currently each stored chunk has an ID, filename, text and embedding. A separate source manifest, version hashes and deduplication are planned, not implemented. Reimporting rebuilds the LanceDB table.
 
 ## Chunking
 
@@ -81,7 +77,7 @@ Each source will have a stable ID, origin, retrieval date, version or content ha
 
 **Option B:** Paragraph- or heading-aware chunks.
 
-We will start with paragraph-aware chunks because they may preserve the meaning of short technical explanations. We'll compare their retrieval results against fixed-size chunks.
+We implemented fixed-size 650-character chunks with 100-character overlap. Paragraph-aware splitting remains an alternative to compare on longer documents.
 
 Metadata should preserve document ID, heading, chunk ID, and source location.
 
@@ -91,7 +87,7 @@ An embedding model converts text into a vector.
 
 The same compatible embedding model must be used for both stored chunks and user questions.
 
-The specific model, dimensions, version, and configuration will be recorded when selected. No embedding model has been tested yet.
+The implementation uses `Xenova/all-MiniLM-L6-v2` with mean pooling and normalized 384-dimensional embeddings for both ingestion and questions.
 
 ## Answer generation
 
